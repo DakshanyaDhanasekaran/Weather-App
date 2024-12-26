@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export", // Enables static site generation,
+  assetPrefix: "./"
 };
 
 export default nextConfig;

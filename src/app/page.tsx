@@ -3,11 +3,13 @@
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
-import FilterDramaIcon from '@mui/icons-material/FilterDrama';
+// import FilterDramaIcon from '@mui/icons-material/FilterDrama';
+import CloudQueueIcon from '@mui/icons-material/CloudQueue';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import VapingRoomsIcon from '@mui/icons-material/VapingRooms';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import CloudIcon from '@mui/icons-material/Cloud';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 
 let WEATHER_API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY
@@ -53,7 +55,7 @@ export default function Home() {
         <div className={styles.section1}>
           <div className={styles.section11}>{
             placeData.weather[0].main === 'Cloudy' &&
-            <FilterDramaIcon className={styles.weathericon}/>
+            <CloudQueueIcon className={styles.weathericon}/>
 
           }
           
@@ -76,6 +78,12 @@ export default function Home() {
 {
             placeData.weather[0].main === 'Drizzle' &&
             <CloudIcon className={styles.weathericon}/>
+
+          }
+
+{
+            placeData.weather[0].main === 'Mist' &&
+            <AcUnitIcon className={styles.weathericon}/>
 
           }
           <p className={styles.temp}>{(placeData?.main.temp - 273.15).toFixed(1)} <span>°C</span></p>
